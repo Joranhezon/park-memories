@@ -6,7 +6,7 @@ on:
 
 jobs:
   Explore-Github-Actions:
-    runs-on: ubuntu-latest:
+    runs-on: ubuntu-latest
     steps:
       - run echo "Hi, this is an example"
       - run echo "I am setting up my first github action"
