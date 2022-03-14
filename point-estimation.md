@@ -1,5 +1,7 @@
 # Points Management
 
+This is an estimation, so it should never be taken as a promise. We should always be aiming to get a more accuracte point estimation, but delivering points is different from delivering value. It's ok to eventually get it wrong and then improve upon it. Communication is also key, so flagging that the estimation is off is also important.
+
 ## 0 point
 Something easy, simple and small. Should take only an hour to finish.
 
