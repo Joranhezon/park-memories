@@ -34,4 +34,4 @@ jobs:
 
       - name: Run Rubocop
         run: |
-          rubocop --parallel
+          bin/rubocop --parallel
