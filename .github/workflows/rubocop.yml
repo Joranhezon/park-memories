@@ -1,0 +1,15 @@
+name: Rubocop
+on: [push]
+
+jobs:
+  name: Rubocop Check
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Ruby and gems
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1
+        bundler-cache: true
