@@ -2,7 +2,7 @@ name: Rubocop
 on: [push]
 
 jobs:
-  Rubocop Check:
+  Rubocop-Check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
