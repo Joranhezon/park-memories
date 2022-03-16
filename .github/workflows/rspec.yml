@@ -38,6 +38,7 @@ jobs:
           PGHOST: localhost
           PGUSER: myapp
         run: |
+          bin/rails db:migrate
           bin/rails db:setup
 
       - name: Run Rspec
