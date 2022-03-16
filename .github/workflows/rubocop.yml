@@ -33,5 +33,7 @@ jobs:
           yarn install --pure-lockfile
 
       - name: Run Rubocop
-        run: |
-          bin/rubocop --parallel
+        uses: reviewdog/action-rubocop@v2
+        with:
+          rubocop_version: gemfile
+          rubocop_extensions: rubocop-rails:gemfile rubocop-rspec:gemfile
