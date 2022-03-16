@@ -39,9 +39,8 @@ jobs:
           PGUSER: myapp
         run: |
           bin/rails db:migrate
-          echo 'mas o que diabos'
           bin/rails db:setup
 
       - name: Run Rspec
         run: |
-          bin/rspec
+          bundle exec rspec spec
