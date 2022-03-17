@@ -12,8 +12,7 @@ default: &default
 development:
   adapter: postgresql
   env:
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: password
+    POSTGRES_HOST_AUTH_METHOD: trust
   encoding: unicode
   database: park_memories_dev
   pool: 5
@@ -25,8 +24,7 @@ development:
 test:
   adapter: postgresql
   env:
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: password
+    POSTGRES_HOST_AUTH_METHOD: trust
   encoding: unicode
   database: park_memories_dev
   pool: 5
