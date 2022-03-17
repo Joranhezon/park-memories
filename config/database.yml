@@ -23,6 +23,8 @@ test:
   adapter: postgresql
   encoding: unicode
   database: park_memories_dev
+  username: root
+  password: 
   pool: 5
 
 production:
