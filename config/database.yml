@@ -13,7 +13,7 @@ development:
   adapter: postgresql
   env:
     POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: "password"
+    POSTGRES_PASSWORD: password
   encoding: unicode
   database: park_memories_dev
   pool: 5
@@ -26,7 +26,7 @@ test:
   adapter: postgresql
   env:
     POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: "password"
+    POSTGRES_PASSWORD: password
   encoding: unicode
   database: park_memories_dev
   pool: 5
