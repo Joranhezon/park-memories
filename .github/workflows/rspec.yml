@@ -36,7 +36,6 @@ jobs:
         env:
           RAILS_ENV: test
           PGHOST: localhost
-          PGUSER: myapp
         run: |
           bin/rails db:migrate
           bin/rails db:setup
