@@ -53,6 +53,8 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
+          sudo apt-get install postgresql libpq-dev
+          sudo service postgresql start
           bin/rails db:migrate
           bin/rails db:setup
 
