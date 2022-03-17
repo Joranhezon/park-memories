@@ -53,6 +53,8 @@ jobs:
         env:
           RAILS_ENV: test
         run: |
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
           bin/rails db:migrate
           bin/rails db:setup
 

@@ -22,7 +22,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: park_memories_dev
+  database: park_memories_test
   username: root
   password: 
   pool: 5
