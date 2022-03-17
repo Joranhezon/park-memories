@@ -1,23 +1,24 @@
 name: Rspec
 on: [push]
 
-# Set up Postgres for tests
-services:
-  postgres:
-    image: postgres:14.2
-    ports:
-      - 5432:5432
-    # needed because the postgres container does not provide a healthcheck
-    # tmpfs makes DB faster by using RAM
-    options: >-
-      --mount type=tmpfs,destination=/var/lib/postgresql/data
-      --health-cmd pg_isready
-      --health-interval 10s
-      --health-timeout 5s
-
 jobs:
   RSpec-Check:
     runs-on: ubuntu-latest
+
+    # Set up Postgres for tests
+    services:
+      postgres:
+        image: postgres:14.2
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        # tmpfs makes DB faster by using RAM
+        options: >-
+          --mount type=tmpfs,destination=/var/lib/postgresql/data
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
