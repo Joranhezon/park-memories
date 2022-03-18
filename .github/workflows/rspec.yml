@@ -52,6 +52,8 @@ jobs:
       - name: Setup test database
         env:
           RAILS_ENV: test
+          POSTGRES_HOST: localhost
+          POSTGRES_PORT: 5432
         run: |
           sudo service postgresql start
           bin/rails db:migrate
