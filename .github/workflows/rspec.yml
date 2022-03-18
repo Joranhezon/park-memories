@@ -62,7 +62,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |
-          sudo service postgresql start
+          bin/rails db:create
           bin/rails db:migrate
           bin/rails db:setup
 
