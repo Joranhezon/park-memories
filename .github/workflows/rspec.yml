@@ -4,6 +4,24 @@ on: [push]
 jobs:
   RSpec-Check:
     runs-on: ubuntu-latest
+
+    # Set up Postgres for tests
+    services:
+      postgres:
+        image: postgres:14.2
+        env:
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+        ports:
+          - 5432:5432
+        # needed because the postgres container does not provide a healthcheck
+        # tmpfs makes DB faster by using RAM
+        options: >-
+          --mount type=tmpfs,destination=/var/lib/postgresql/data
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -32,12 +50,19 @@ jobs:
         run: |
           yarn install --pure-lockfile
 
+      - name: Install PostgreSQL Client
+        run: |
+          sudo apt-get -yqq install libpq-dev
+
       - name: Setup test database
         env:
           RAILS_ENV: test
-          PGHOST: localhost
-          PGUSER: myapp
+          POSTGRES_HOST: localhost
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_USER: postgres
+          POSTGRES_PORT: ${{ job.services.postgres.ports[5432] }}
         run: |
+          bin/rails db:create
           bin/rails db:migrate
           bin/rails db:setup
 
