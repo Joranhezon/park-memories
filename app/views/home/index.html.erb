@@ -2,4 +2,4 @@
 <h1> Park Memories </h1>
 <%= content_tag :div, nil, data: { controller: "maps", action: "google-maps-callback@window->place.initMap" }, class: 'map' %>
 
-<div data-controller="maps" data-target="maps.map" style="height:400px"></div>
+<div data-controller="maps" data-maps-target="map" style="height:400px"></div>

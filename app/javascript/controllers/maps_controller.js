@@ -15,8 +15,17 @@ export default class extends Controller {
 
   initMap() {
     this.map = new google.maps.Map(this.mapTarget, {
-      center: new google.maps.LatLng(39.5, -98.35),
-      zoom: 4
+      center: new google.maps.LatLng(-15.7961, -47.9252),
+      zoom: 17
     })
+
+    this.marker = new google.maps.Marker({
+      map: this.map,
+      anchorPoint: new google.maps.Point(0,0)
+    })
+
+    this.marker.setPosition({lat: -15.7961, lng: -47.9252})
+    this.marker.setVisible(true)
+    return this.map
   }
 }
