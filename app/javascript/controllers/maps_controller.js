@@ -11,6 +11,7 @@ export default class extends Controller {
 
   initializeMap() {
     this.initMap()
+    this.putMarker()
   }
 
   initMap() {
@@ -19,6 +20,10 @@ export default class extends Controller {
       zoom: 17
     })
 
+    return this.map
+  }
+
+  putMarker() {
     this.marker = new google.maps.Marker({
       map: this.map,
       anchorPoint: new google.maps.Point(0,0)
@@ -26,6 +31,7 @@ export default class extends Controller {
 
     this.marker.setPosition({lat: -15.7961, lng: -47.9252})
     this.marker.setVisible(true)
-    return this.map
+
+    return this.marker
   }
 }
