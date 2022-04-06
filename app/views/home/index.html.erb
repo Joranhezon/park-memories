@@ -1,5 +1,32 @@
 
 <h1> Park Memories </h1>
-<%= content_tag :div, nil, data: { controller: "maps", action: "google-maps-callback@window->place.initMap" }, class: 'map' %>
+<%= content_tag :div, nil, data: { controller: "maps", action: "google-maps-callback@window->place.initMap" }%>
 
-<div data-controller="maps" data-target="maps.map" style="height:400px"></div>
+<%= form_with local: true, data: {
+                                            controller: :maps,
+                                            action: "google-maps-callback@window->maps#initializeMap"
+                                          } do |form| %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :search %>
+    <%= form.search_field :search, name: nil, class: 'form-control', data: { target: "maps.field", action: "keydown->maps#preventSubmit" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude, class: 'form-control', data: { target: "maps.latitude" } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude, class: 'form-control', data: { target: "maps.longitude" } %>
+  </div>
+
+	<br><br>
+  <%= content_tag :div, nil, data: { target: "maps.map" }, class: 'map' %>
+
+  <% end %>
